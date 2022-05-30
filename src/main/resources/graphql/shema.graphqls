@@ -1,0 +1,29 @@
+type Student{
+    id: ID!,
+    name: String,
+    age: Int,
+    university: University
+}
+
+enum University {
+    UNICAP
+    UPE
+}
+
+input StudentInput{
+    name: String,
+    age: Int,
+    university: University
+}
+
+
+type Query{
+    findAllStudents: [Student]
+    findStudentById(id: Int): Student
+}
+
+type Mutation{
+    saveStudent(student: StudentInput): Student
+    updateAge(studentId: Int, age: Int): Student
+}
+
